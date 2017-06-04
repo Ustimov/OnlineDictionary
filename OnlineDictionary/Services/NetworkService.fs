@@ -4,10 +4,13 @@ open Newtonsoft.Json
 open System.Net
 open System.Net.Http
 
-type NetworkService() = 
-    let apiKey = ""
+type NetworkService private() = 
+    let apiKey = "API_KEY"
     let baseUrl = "https://dictionary.yandex.net/api/v1/dicservice.json"
     let client = new HttpClient()
+
+    static let mutable instance = lazy(NetworkService())
+    static member Instance with get() = instance.Value
 
     member this.Lookup(lang: string, text: string) = 
         async {
@@ -22,3 +25,5 @@ type NetworkService() =
             with
             | _ -> return None
         }
+    
+   

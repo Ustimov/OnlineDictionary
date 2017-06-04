@@ -11,7 +11,7 @@ open Android.OS
 
 type Resources = OnlineDictionary.Droid.Resource
 
-[<Activity (Label = "OnlineDictionary.Droid", Icon = "@drawable/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = (ConfigChanges.ScreenSize ||| ConfigChanges.Orientation))>]
+[<Activity (Label = "Словарь", Icon = "@drawable/ic_launcher", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = (ConfigChanges.ScreenSize ||| ConfigChanges.Orientation))>]
 type MainActivity() =
     inherit Xamarin.Forms.Platform.Android.FormsAppCompatActivity()
     override this.OnCreate (bundle: Bundle) =

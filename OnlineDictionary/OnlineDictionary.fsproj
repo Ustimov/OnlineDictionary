@@ -72,7 +72,7 @@
     <Compile Include="Models\LookupModel.fs" />
     <Compile Include="Models\LanguageModel.fs" />
     <Compile Include="Services\NetworkService.fs" />
-    <Compile Include="Services\DatabaseService.fs" />
+    <Compile Include="Services\DataService.fs" />
     <Compile Include="ViewModels\DictionaryPageViewModel.fs" />
     <Compile Include="ViewModels\HistoryPageViewModel.fs" />
     <EmbeddedResource Include="Views\DictionaryPage.xaml">

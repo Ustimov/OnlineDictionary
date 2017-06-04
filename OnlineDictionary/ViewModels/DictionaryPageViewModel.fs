@@ -3,7 +3,7 @@
 open System.ComponentModel
 open Xamarin.Forms
 
-type DictionaryPageViewModel(page: Page, networkService: NetworkService, databaseService: DatabaseService) =
+type DictionaryPageViewModel(page: Page, networkService: NetworkService, dataService: DataService) =
     let event = Event<_, _>()
     let mutable lookup = LookupModel()
     let mutable oldInput = ""
@@ -56,7 +56,10 @@ type DictionaryPageViewModel(page: Page, networkService: NetworkService, databas
                 this.OldInput <- this.Input
                 match lookupResult with
                 | None -> do! page.DisplayAlert("Ошибка", "Не удалось получить перевод", "Закрыть") |> Async.AwaitTask
-                | Some(lookupModel) -> this.Lookup <- lookupModel
+                | Some(lookupModel) ->
+                    if lookupModel.Ok() then
+                        dataService.SaveLookup(lookupModel)
+                    this.Lookup <- lookupModel
             } |> Async.StartImmediate)
 
     member this.ChangeTranslationDirectionCommand = 

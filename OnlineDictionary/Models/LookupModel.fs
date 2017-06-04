@@ -7,6 +7,9 @@ type LookupModel() =
 
     member this.Ok() = this.Def.Length > 0
 
+    member this.Text
+       with get() = if this.Ok() then this.Def.[0].Text else ""
+
     member this.Translation
        with get() = if this.Ok() then this.Def.[0].Tr.[0].Text else ""
 

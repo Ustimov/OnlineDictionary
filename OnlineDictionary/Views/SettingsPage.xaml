@@ -3,7 +3,13 @@
 	xmlns="http://xamarin.com/schemas/2014/forms"
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 	x:Class="OnlineDictionary.SettingsPage"
-	Icon="ic_settings_black_36dp.png">
+	Icon="ic_settings_black_36dp.png"
+	Padding="10">
 	<ContentPage.Content>
+		<Label
+			Text="Реализовано с помощью сервиса «API «Яндекс.Словарь»"
+			HorizontalTextAlignment="Center"
+			HorizontalOptions="CenterAndExpand"
+			VerticalOptions="CenterAndExpand"/>
 	</ContentPage.Content>
 </ContentPage>

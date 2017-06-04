@@ -100,28 +100,28 @@
   <ItemGroup>
     <Folder Include="Resources\layout\" />
     <Folder Include="Resources\values\" />
+    <Folder Include="Resources\drawable\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainActivity.fs" />
     <Compile Include="Properties\AssemblyInfo.fs" />
     <None Include="Properties\AndroidManifest.xml" />
     <None Include="Resources\AboutResources.txt" />
-    <AndroidResource Include="Resources\drawable\icon.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\icon.png" />
     <AndroidResource Include="Resources\drawable-hdpi\ic_bookmark_black_36dp.png" />
     <AndroidResource Include="Resources\drawable-hdpi\ic_translate_black_36dp.png" />
     <AndroidResource Include="Resources\drawable-hdpi\ic_settings_black_36dp.png" />
     <AndroidResource Include="Resources\drawable-hdpi\ic_swap_horiz_black_36dp.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\icon.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_launcher.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\ic_bookmark_black_36dp.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\ic_translate_black_36dp.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\ic_settings_black_36dp.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\ic_swap_horiz_black_36dp.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\icon.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_launcher.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_bookmark_black_36dp.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_translate_black_36dp.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_settings_black_36dp.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_swap_horiz_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_launcher.png" />
     <AndroidResource Include="Resources\layout\Tabbar.axml" />
     <AndroidResource Include="Resources\layout\Toolbar.axml" />
     <AndroidResource Include="Resources\values\styles.xml" />
