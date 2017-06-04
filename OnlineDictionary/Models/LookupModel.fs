@@ -26,7 +26,7 @@ type LookupModel() =
                        definitionModel.PartOfSpeech <- translation.Pos
                        let mutable mainTranslation = translation.Text
                        if translation.Gen <> "" then 
-                           mainTranslation <- mainTranslation + sprintf "(%s)" translation.Gen
+                           mainTranslation <- mainTranslation + sprintf " (%s)" translation.Gen
                        definitionModel.Synonyms <-
                            translation.Syn
                            |> Seq.fold (fun state item ->

@@ -1,25 +1,15 @@
 ﻿namespace OnlineDictionary
 
 open System.ComponentModel
-open System.Collections.ObjectModel
 open Xamarin.Forms
 
 type DictionaryPageViewModel(page: Page, networkService: NetworkService, databaseService: DatabaseService) =
     let event = Event<_, _>()
     let mutable lookup = LookupModel()
     let mutable oldInput = ""
-    //let mutable text = ""
-    //let mutable transcription = ""
-    //let mutable translation = ""
-    //let definitions = ObservableCollection<TranslationModel>()
-
-    //let setTranslation() =
-    //    if lookup.Def.Length > 0 then
-    //        this.Text <- lookup.Def.[0].Text
-    //        this.Transcription <- lookup.Def.[0].Ts
-    //        definitions.Clear()
-    //        for definition in lookup.Def do
-    //            definitions.Add(definition)
+    let mutable isLoading = false
+    let mutable fromLanguage = LanguageModel("Английский", "en")
+    let mutable toLanguage = LanguageModel("Русcкий", "ru")
 
     interface INotifyPropertyChanged with
        [<CLIEvent>]
@@ -38,33 +28,39 @@ type DictionaryPageViewModel(page: Page, networkService: NetworkService, databas
         and set(value) = 
             lookup <- value
             event.Trigger(this, PropertyChangedEventArgs("Lookup"))
-  
-    //member this.Text
-    //   with get() = text
-    //   and set(value) = 
-    //       text <- value
-    //       event.Trigger(this, PropertyChangedEventArgs("Text"))
-    
-    //member this.Transcription
-    //   with get() = transcription
-    //   and set(value) =
-    //       transcription <- value
-    //       event.Trigger(this, PropertyChangedEventArgs("Transcription"))
 
-    //member this.Translation
-    //   with get() = translation
-    //   and set(value) =
-    //       translation <- value
-    //       event.Trigger(this, PropertyChangedEventArgs("Translation"))
+    member this.IsLoading
+        with get() = isLoading
+        and set(value) = 
+            isLoading <- value
+            event.Trigger(this, PropertyChangedEventArgs("IsLoading"))
 
-    //member this.Definitions = definitions
+    member this.From
+       with get() = fromLanguage
+       and set(value) =
+           fromLanguage <- value
+           event.Trigger(this, PropertyChangedEventArgs("From"))
+
+    member this.To
+       with get() = toLanguage
+       and set(value) =
+           toLanguage <- value
+           event.Trigger(this, PropertyChangedEventArgs("To"))
 
     member this.TranslateCommand = 
         Command(fun () -> 
             async {
+                this.IsLoading <- true
+                let! lookupResult = networkService.Lookup(sprintf "%s-%s" this.From.Code this.To.Code, this.Input)
+                this.IsLoading <- false
                 this.OldInput <- this.Input
-                let! lookupResult = networkService.Lookup("en-ru", this.Input)
                 match lookupResult with
                 | None -> do! page.DisplayAlert("Ошибка", "Не удалось получить перевод", "Закрыть") |> Async.AwaitTask
-                | Some(lookupModel) -> this.Lookup <- lookupModel//; setTranslation()
+                | Some(lookupModel) -> this.Lookup <- lookupModel
             } |> Async.StartImmediate)
+
+    member this.ChangeTranslationDirectionCommand = 
+        Command(fun () ->
+            let tmp = this.To
+            this.To <- this.From
+            this.From <- tmp)

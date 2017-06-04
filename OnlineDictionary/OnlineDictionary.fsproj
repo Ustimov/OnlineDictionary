@@ -70,6 +70,7 @@
     <Compile Include="Models\TranslationModel.fs" />
     <Compile Include="Models\DefinitionModel.fs" />
     <Compile Include="Models\LookupModel.fs" />
+    <Compile Include="Models\LanguageModel.fs" />
     <Compile Include="Services\NetworkService.fs" />
     <Compile Include="Services\DatabaseService.fs" />
     <Compile Include="ViewModels\DictionaryPageViewModel.fs" />
@@ -85,6 +86,18 @@
     </EmbeddedResource>
     <Compile Include="Views\HistoryPage.xaml.fs">
       <DependentUpon>HistoryPage.xaml</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Views\SettingsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <Compile Include="Views\SettingsPage.xaml.fs">
+      <DependentUpon>SettingsPage.xaml</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Views\RootPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <Compile Include="Views\RootPage.xaml.fs">
+      <DependentUpon>RootPage.xaml</DependentUpon>
     </Compile>
     <EmbeddedResource Include="App.xaml" />
     <Compile Include="App.xaml.fs">

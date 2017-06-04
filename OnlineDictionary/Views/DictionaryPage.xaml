@@ -2,28 +2,124 @@
 <ContentPage
 	xmlns="http://xamarin.com/schemas/2014/forms"
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-	x:Class="OnlineDictionary.DictionaryPage">
+	x:Class="OnlineDictionary.DictionaryPage"
+	Icon="ic_translate_black_36dp.png"
+	Padding="10">
 	<ContentPage.Content>
 		<StackLayout>
-			<Entry Text="{Binding Input}"/>
-			<Label Text="{Binding OldInput}"/>
-			<Button Text="Translate"
-					Command="{Binding TranslateCommand}"/>
-			<Label Text="{Binding Lookup.Translation}"/>
-			<Label Text="{Binding Lookup.Transcription}"/>
+			<Grid HorizontalOptions="FillAndExpand">
+				<Grid.ColumnDefinitions>
+				    <ColumnDefinition Width="*"/>
+    				<ColumnDefinition Width="*"/>
+					<ColumnDefinition Width="*"/>
+				</Grid.ColumnDefinitions>
+				<Label
+					Text="{Binding From.Name}"
+					TextColor="#000000"
+					HorizontalOptions="FillAndExpand"
+					VerticalOptions="CenterAndExpand"/>
+				<Image
+					Grid.Column="1"
+					Source="ic_swap_horiz_black_36dp.png"
+					HorizontalOptions="FillAndExpand">
+					<Image.GestureRecognizers>
+						<TapGestureRecognizer Command="{Binding ChangeTranslationDirectionCommand}"/>
+					</Image.GestureRecognizers>
+				</Image>
+				<Label
+					Grid.Column="2"
+					Text="{Binding To.Name}"
+					TextColor="#000000"
+					HorizontalOptions="EndAndExpand"
+					VerticalOptions="CenterAndExpand"/>
+			</Grid>
+			<Entry
+				Text="{Binding Input}"
+				x:Name="input"/>
+			<Button Text="Перевести"
+					Command="{Binding TranslateCommand}"
+					BackgroundColor="#FFDC61"
+					BorderColor="#000000">
+				<Button.Triggers>
+					<DataTrigger
+						TargetType="Button"
+						Binding="{Binding Source={x:Reference input}, Path=Text.Length}"
+						Value="0">
+						<Setter Property="IsEnabled" Value="False"/>
+					</DataTrigger>
+				</Button.Triggers>
+			</Button>
+			<ActivityIndicator
+				IsRunning="True"
+				IsVisible="{Binding IsLoading}"/>
+			<Label
+					Text="{Binding Lookup.Translation}"
+					TextColor="#000000"/>
+			<StackLayout Orientation="Horizontal">
+				<Label
+					Text="{Binding OldInput}"
+					TextColor="#000000"/>
+				<Label
+					Text="{Binding Lookup.Transcription, StringFormat='[{0}]'}"
+					TextColor="#ACACAC"
+					x:Name="transcription">
+					<Label.Triggers>
+						<DataTrigger
+							TargetType="Label"
+							Binding="{Binding Source={x:Reference transcription}, Path=Text.Length}"
+							Value="2">
+							<Setter Property="IsVisible" Value="False"/>
+						</DataTrigger>
+					</Label.Triggers>
+				</Label>
+			</StackLayout>
 			<ListView
 				ItemsSource="{Binding Lookup.Definitions}"
 				VerticalOptions="FillAndExpand"
-				HasUnevenRows="True">
+				HasUnevenRows="True"
+				SeparatorVisibility="None"
+				ItemSelected="ListViewItemSelected">
 				<ListView.ItemTemplate>
 					<DataTemplate>
 						<ViewCell>
 							<StackLayout>
-								<Label Text="{Binding PartOfSpeech}"/>
-								<Label Text="{Binding Number}"/>
-								<Label Text="{Binding Synonyms}"/>
-								<Label Text="{Binding Means}"/>
-								<Label Text="{Binding Examples}"/>
+								<Label
+									Text="{Binding PartOfSpeech}"
+									TextColor="#B699A9"/>
+								<StackLayout Orientation="Horizontal">
+									<Label
+										Text="{Binding Number}"
+										TextColor="#ACACAC"/>
+									<Label
+										Text="{Binding Synonyms}"
+										TextColor="#507B95"/>
+								</StackLayout>
+								<Label
+									Text="{Binding Means}"
+									TextColor="#A98B7C"
+									x:Name="means">
+									<Label.Triggers>
+										<DataTrigger
+											TargetType="Label"
+											Binding="{Binding Source={x:Reference means}, Path=Text.Length}"
+											Value="0">
+											<Setter Property="IsVisible" Value="False"/>
+										</DataTrigger>
+									</Label.Triggers>
+								</Label>
+								<Label
+									Text="{Binding Examples}"
+									TextColor="#A9A6B3"
+									x:Name="examples">
+									<Label.Triggers>
+										<DataTrigger
+											TargetType="Label"
+											Binding="{Binding Source={x:Reference examples}, Path=Text.Length}"
+											Value="0">
+											<Setter Property="IsVisible" Value="False"/>
+										</DataTrigger>
+									</Label.Triggers>
+								</Label>
 							</StackLayout>
 						</ViewCell>
 					</DataTemplate>

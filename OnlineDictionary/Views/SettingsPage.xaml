@@ -2,8 +2,8 @@
 <ContentPage
 	xmlns="http://xamarin.com/schemas/2014/forms"
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-	x:Class="OnlineDictionary.HistoryPage"
-	Icon="ic_bookmark_black_36dp.png">
+	x:Class="OnlineDictionary.SettingsPage"
+	Icon="ic_settings_black_36dp.png">
 	<ContentPage.Content>
 	</ContentPage.Content>
 </ContentPage>

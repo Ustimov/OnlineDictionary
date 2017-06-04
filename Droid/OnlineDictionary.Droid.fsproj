@@ -108,8 +108,23 @@
     <None Include="Resources\AboutResources.txt" />
     <AndroidResource Include="Resources\drawable\icon.png" />
     <AndroidResource Include="Resources\drawable-hdpi\icon.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_bookmark_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_translate_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_settings_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_swap_horiz_black_36dp.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\icon.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_bookmark_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_translate_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_settings_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_swap_horiz_black_36dp.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\icon.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_bookmark_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_translate_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_settings_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_swap_horiz_black_36dp.png" />
+    <AndroidResource Include="Resources\layout\Tabbar.axml" />
+    <AndroidResource Include="Resources\layout\Toolbar.axml" />
+    <AndroidResource Include="Resources\values\styles.xml" />
     <None Include="Assets\AboutAssets.txt" />
     <None Include="packages.config" />
   </ItemGroup>

@@ -3,4 +3,4 @@
 open Xamarin.Forms
 
 type App() =
-    inherit Application(MainPage = DictionaryPage())
+    inherit Application(MainPage = RootPage())

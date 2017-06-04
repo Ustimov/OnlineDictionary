@@ -9,10 +9,15 @@ open Android.Views
 open Android.Widget
 open Android.OS
 
-[<Activity (Label = "OnlineDictionary.Droid", Icon = "@drawable/icon", MainLauncher = true, ConfigurationChanges = (ConfigChanges.ScreenSize ||| ConfigChanges.Orientation))>]
+type Resources = OnlineDictionary.Droid.Resource
+
+[<Activity (Label = "OnlineDictionary.Droid", Icon = "@drawable/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = (ConfigChanges.ScreenSize ||| ConfigChanges.Orientation))>]
 type MainActivity() =
-    inherit Xamarin.Forms.Platform.Android.FormsApplicationActivity()
+    inherit Xamarin.Forms.Platform.Android.FormsAppCompatActivity()
     override this.OnCreate (bundle: Bundle) =
+        MainActivity.TabLayoutResource <- Resources.Layout.Tabbar
+        MainActivity.ToolbarResource <- Resources.Layout.Toolbar
+
         base.OnCreate (bundle)
 
         Xamarin.Forms.Forms.Init (this, bundle)
