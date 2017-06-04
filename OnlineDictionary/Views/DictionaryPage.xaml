@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	x:Class="OnlineDictionary.DictionaryPage">
+	<ContentPage.Content>
+		<StackLayout>
+			<Entry Text="{Binding Input}"/>
+			<Label Text="{Binding OldInput}"/>
+			<Button Text="Translate"
+					Command="{Binding TranslateCommand}"/>
+			<Label Text="{Binding Lookup.Translation}"/>
+			<Label Text="{Binding Lookup.Transcription}"/>
+			<ListView
+				ItemsSource="{Binding Lookup.Definitions}"
+				VerticalOptions="FillAndExpand"
+				HasUnevenRows="True">
+				<ListView.ItemTemplate>
+					<DataTemplate>
+						<ViewCell>
+							<StackLayout>
+								<Label Text="{Binding PartOfSpeech}"/>
+								<Label Text="{Binding Number}"/>
+								<Label Text="{Binding Synonyms}"/>
+								<Label Text="{Binding Means}"/>
+								<Label Text="{Binding Examples}"/>
+							</StackLayout>
+						</ViewCell>
+					</DataTemplate>
+				</ListView.ItemTemplate>
+			</ListView>
+		</StackLayout>
+	</ContentPage.Content>
+</ContentPage>
