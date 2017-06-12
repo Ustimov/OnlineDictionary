@@ -10,6 +10,10 @@
 			Text="Реализовано с помощью сервиса «API «Яндекс.Словарь»"
 			HorizontalTextAlignment="Center"
 			HorizontalOptions="CenterAndExpand"
-			VerticalOptions="CenterAndExpand"/>
+			VerticalOptions="CenterAndExpand">
+			<Label.GestureRecognizers>
+				<TapGestureRecognizer Command="{Binding OpenYandexUrlCommand}"/>
+			</Label.GestureRecognizers>
+		</Label>
 	</ContentPage.Content>
 </ContentPage>

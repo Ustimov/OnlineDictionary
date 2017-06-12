@@ -1,6 +1,6 @@
 ﻿namespace OnlineDictionary.Droid
-open System
 
+open System
 open Android.App
 open Android.Content
 open Android.Content.PM

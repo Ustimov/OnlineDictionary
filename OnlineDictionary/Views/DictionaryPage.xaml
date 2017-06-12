@@ -20,7 +20,7 @@
 					VerticalOptions="CenterAndExpand"/>
 				<Image
 					Grid.Column="1"
-					Source="ic_swap_horiz_black_36dp.png"
+					Source="ic_swap_horiz_black_24dp.png"
 					HorizontalOptions="FillAndExpand">
 					<Image.GestureRecognizers>
 						<TapGestureRecognizer Command="{Binding ChangeTranslationDirectionCommand}"/>

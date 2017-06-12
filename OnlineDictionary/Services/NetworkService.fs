@@ -15,7 +15,7 @@ type NetworkService private() =
     member this.Lookup(lang: string, text: string) = 
         async {
             try
-                let! response = client.GetAsync(sprintf "%s/lookup?key=%s&lang=%s&text=%s" baseUrl apiKey lang text) |> Async.AwaitTask
+                let! response = client.GetAsync(sprintf "%s/lookup?key=%s&lang=%s&text=%s&ui=ru" baseUrl apiKey lang text) |> Async.AwaitTask
                 match response.StatusCode with
                 | HttpStatusCode.OK ->
                     let! content = response.Content.ReadAsStringAsync() |> Async.AwaitTask

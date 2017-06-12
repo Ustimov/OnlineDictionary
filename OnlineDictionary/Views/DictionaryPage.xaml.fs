@@ -9,6 +9,6 @@ type DictionaryPage() as this =
     do base.BindingContext <- DictionaryPageViewModel(this, NetworkService.Instance, DataService.Instance)
 
     member this.ListViewItemSelected(sender: obj, args: SelectedItemChangedEventArgs) =
-        (sender :?> ListView).SelectedItem <- None
+        (sender :?> ListView).SelectedItem <- null
 
 

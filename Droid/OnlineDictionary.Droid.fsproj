@@ -90,6 +90,12 @@
       <HintPath>..\packages\FSharp.Core.4.2.0\lib\netstandard1.6\FSharp.Core.dll</HintPath>
     </Reference>
     <Reference Include="System.Numerics" />
+    <Reference Include="PCLStorage.Abstractions">
+      <HintPath>..\packages\PCLStorage.1.0.2\lib\monoandroid\PCLStorage.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="PCLStorage">
+      <HintPath>..\packages\PCLStorage.1.0.2\lib\monoandroid\PCLStorage.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OnlineDictionary\OnlineDictionary.fsproj">
@@ -110,17 +116,17 @@
     <AndroidResource Include="Resources\drawable-hdpi\ic_bookmark_black_36dp.png" />
     <AndroidResource Include="Resources\drawable-hdpi\ic_translate_black_36dp.png" />
     <AndroidResource Include="Resources\drawable-hdpi\ic_settings_black_36dp.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\ic_swap_horiz_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_swap_horiz_black_24dp.png" />
     <AndroidResource Include="Resources\drawable-hdpi\ic_launcher.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\ic_bookmark_black_36dp.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\ic_translate_black_36dp.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\ic_settings_black_36dp.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\ic_swap_horiz_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_swap_horiz_black_24dp.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\ic_launcher.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_bookmark_black_36dp.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_translate_black_36dp.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_settings_black_36dp.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\ic_swap_horiz_black_36dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_swap_horiz_black_24dp.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_launcher.png" />
     <AndroidResource Include="Resources\layout\Tabbar.axml" />
     <AndroidResource Include="Resources\layout\Toolbar.axml" />

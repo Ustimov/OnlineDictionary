@@ -11,3 +11,10 @@ type HistoryPage() as this =
 
     override this.OnAppearing() = 
         viewModel.RefreshHistory()
+
+    member this.ListViewItemSelected(sender: obj, args: SelectedItemChangedEventArgs) =
+        if args.SelectedItem <> null then
+           let lookup = args.SelectedItem :?> LookupModel
+           MessagingCenter.Send(this, "ShowHistoryLookup", lookup)
+           (sender :?> ListView).SelectedItem <- null
+

@@ -57,6 +57,12 @@
     <Reference Include="FSharp.Core">
       <HintPath>..\packages\FSharp.Core.4.2.0\lib\profile259\FSharp.Core.dll</HintPath>
     </Reference>
+    <Reference Include="PCLStorage.Abstractions">
+      <HintPath>..\packages\PCLStorage.1.0.2\lib\portable-net45+wp8+wpa81+win8+monoandroid+monotouch+Xamarin.iOS+Xamarin.Mac\PCLStorage.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="PCLStorage">
+      <HintPath>..\packages\PCLStorage.1.0.2\lib\portable-net45+wp8+wpa81+win8+monoandroid+monotouch+Xamarin.iOS+Xamarin.Mac\PCLStorage.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\" />
@@ -73,19 +79,20 @@
     <Compile Include="Models\LanguageModel.fs" />
     <Compile Include="Services\NetworkService.fs" />
     <Compile Include="Services\DataService.fs" />
-    <Compile Include="ViewModels\DictionaryPageViewModel.fs" />
     <Compile Include="ViewModels\HistoryPageViewModel.fs" />
-    <EmbeddedResource Include="Views\DictionaryPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <Compile Include="Views\DictionaryPage.xaml.fs">
-      <DependentUpon>DictionaryPage.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="ViewModels\SettingsPageViewModel.fs" />
     <EmbeddedResource Include="Views\HistoryPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <Compile Include="Views\HistoryPage.xaml.fs">
       <DependentUpon>HistoryPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\DictionaryPageViewModel.fs" />
+    <EmbeddedResource Include="Views\DictionaryPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <Compile Include="Views\DictionaryPage.xaml.fs">
+      <DependentUpon>DictionaryPage.xaml</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Views\SettingsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>

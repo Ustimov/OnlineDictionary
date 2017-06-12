@@ -3,13 +3,15 @@
 open System.ComponentModel
 open Xamarin.Forms
 
-type DictionaryPageViewModel(page: Page, networkService: NetworkService, dataService: DataService) =
+type DictionaryPageViewModel(page: Page, networkService: NetworkService, dataService: DataService) as this =
     let event = Event<_, _>()
     let mutable lookup = LookupModel()
     let mutable oldInput = ""
     let mutable isLoading = false
     let mutable fromLanguage = LanguageModel("Английский", "en")
     let mutable toLanguage = LanguageModel("Русcкий", "ru")
+
+    do MessagingCenter.Subscribe<HistoryPage, LookupModel>(this, "ShowHistoryLookup", fun sender lookup -> this.Lookup <- lookup)
 
     interface INotifyPropertyChanged with
        [<CLIEvent>]

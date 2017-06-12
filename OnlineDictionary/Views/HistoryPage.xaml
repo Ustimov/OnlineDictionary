@@ -8,7 +8,8 @@
 	<ContentPage.Content>
 		<StackLayout>
 			<ListView
-				ItemsSource="{Binding Lookups}">
+				ItemsSource="{Binding Lookups}"
+				ItemSelected="ListViewItemSelected">
 				<ListView.ItemTemplate>
 					<DataTemplate>
 						<TextCell
