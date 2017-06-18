@@ -15,6 +15,9 @@ type Resources = OnlineDictionary.Droid.Resource
 type MainActivity() =
     inherit Xamarin.Forms.Platform.Android.FormsAppCompatActivity()
     override this.OnCreate (bundle: Bundle) =
+        YandexMetricaAndroid.YandexMetricaImplementation.Activate(this, "API_KEY", this.Application);
+        Flurry.Analytics.FlurryAgent.Init(this, "API_KEY")
+
         MainActivity.TabLayoutResource <- Resources.Layout.Tabbar
         MainActivity.ToolbarResource <- Resources.Layout.Toolbar
 

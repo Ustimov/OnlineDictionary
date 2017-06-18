@@ -15,6 +15,6 @@ type HistoryPage() as this =
     member this.ListViewItemSelected(sender: obj, args: SelectedItemChangedEventArgs) =
         if args.SelectedItem <> null then
            let lookup = args.SelectedItem :?> LookupModel
-           MessagingCenter.Send(this, "ShowHistoryLookup", lookup)
+           MessagingCenter.Send(lookup, "ShowHistoryLookup")
            (sender :?> ListView).SelectedItem <- null
 

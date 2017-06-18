@@ -11,7 +11,7 @@ type DictionaryPageViewModel(page: Page, networkService: NetworkService, dataSer
     let mutable fromLanguage = LanguageModel("Английский", "en")
     let mutable toLanguage = LanguageModel("Русcкий", "ru")
 
-    do MessagingCenter.Subscribe<HistoryPage, LookupModel>(this, "ShowHistoryLookup", fun sender lookup -> this.Lookup <- lookup)
+    do MessagingCenter.Subscribe<LookupModel>(this, "ShowHistoryLookup", fun sender -> this.Lookup <- sender; this.OldInput <- sender.Text)
 
     interface INotifyPropertyChanged with
        [<CLIEvent>]

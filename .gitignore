@@ -38,3 +38,7 @@ Thumbs.db
 
 # dotCover
 *.dotCover
+
+.droidres/
+.idea/
+Droid/Resources/Resource.designer.cs
